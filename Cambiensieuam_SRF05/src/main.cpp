@@ -1,14 +1,14 @@
 #include "SRF05.h"
 
-const int trigger = 7;
-const int echo    = 6;
+const int trigger = 5;
+const int echo    = 18;
 
 SRF05 SRF(trigger, echo);
 
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println();
   Serial.println(__FILE__);
   Serial.print("SRF05_LIB_VERSION: ");
@@ -22,6 +22,9 @@ void setup()
 
 void loop()
 {
-  Serial.println(SRF.getMillimeter());
-  delay(100);
+  float distance = SRF.getMillimeter() / 10.0;
+  Serial.print("Khoảng cách: ");
+  Serial.print(distance, 2);
+  Serial.println(" cm");
+  delay(1000);
 }

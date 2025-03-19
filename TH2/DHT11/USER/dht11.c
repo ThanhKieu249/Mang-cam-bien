@@ -229,6 +229,6 @@ void DHT11_Init(uint8_t *tem, uint8_t *hum)
 		}
 		uint8_t u8CheckSum = u8Buff[0] + u8Buff[1] + u8Buff[2] + u8Buff[3];
 		if(u8CheckSum != u8Buff[4]) while(1){};
-		*tem=u8Buff[0];
-		*hum=u8Buff[2];
+		*tem=u8Buff[2];
+		*hum=u8Buff[0];
 }
